@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Selamat Ulang Tahun</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fdfaf4;
+      font-family: 'Quicksand', sans-serif;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-top: 30px;
+      font-size: 2em;
+      color: #8b5e3c;
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+    }
+    .romantic-text {
+      color: #a17452;
+      font-size: 1.05em;
+      margin: 10px 30px 20px;
+      text-align: center;
+      max-width: 400px;
+    }
+    .slider-container {
+      width: 100%;
+      overflow-x: auto;
+      display: flex;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      padding: 10px 0 30px;
+    }
+    .slide {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      display: flex;
+      justify-content: center;
+      padding: 0 10px;
+    }
+    .photo-frame {
+      background: #fffef9;
+      border: 1px solid #e9d8c5;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      width: 90%;
+      max-width: 350px;
+      aspect-ratio: 9 / 16;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .note-text {
+      padding: 20px;
+      text-align: center;
+      color: #5e4434;
+      font-size: 1em;
+      line-height: 1.6;
+    }
+    .footer {
+      margin: 20px;
+      color: #a17452;
+      font-size: 1em;
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* Falling effect */
+    .falling {
+      position: fixed;
+      top: -100px;
+      width: 30px;
+      height: 30px;
+      z-index: 9999;
+      pointer-events: none;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px) rotate(0); opacity: 1; }
+      100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Musik autoplay -->
+  <audio autoplay loop>
+    <source src="monokrom.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Judul -->
+  <h1>Selamat Ulang Tahun, Nacaku Cintakuu 💕</h1>
+  <div class="romantic-text">
+    Hari ini adalah hari spesial, karena seseorang yang sangat aku sayang dilahirkan ke dunia ini. Terima kasih telah hadir dan mewarnai hidupku, Nacaa. ✨
+  </div>
+
+  <!-- Slider -->
+  <div class="slider-container">
+    <div class="slide"><div class="photo-frame"><img src="poto nacaa 1.jpg" alt="Foto 1"></div></div>
+    <div class="slide"><div class="photo-frame"><img src="poto naca 2.jpg" alt="Foto 2"></div></div>
+    <div class="slide"><div class="photo-frame"><img src="poto naca 3.jpg" alt="Foto 3"></div></div>
+    <div class="slide"><div class="photo-frame"><img src="poto naca 4.jpeg" alt="Foto 4"></div></div>
+    <div class="slide"><div class="photo-frame"><img src="poto naca 5.jpg" alt="Foto 5"></div></div>
+
+    <!-- Slide akhir -->
+    <div class="slide">
+      <div class="photo-frame">
+        <div class="note-text">
+          Maaf yaa Nacaakuu cuma bisa kasih ini.<br><br>
+          Selamat atas ulang tahunmu. Semoga rezeki makin lancar dan diberi kemudahan dalam kehidupan ini dan selanjutnya.<br><br>
+          Semoga semua doamu terkabul, yahh 💖<br><br>
+          Maaf cuma bisa hadiah seperti ini.<br><br>
+          Aku cinta kamuu Nacaa 💗<br>
+          <b>- dari pria mu, Fathan</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">🌼 Untuk nacaa cantikku cintaku sayangku🌼</div>
+
+  <!-- Efek bunga dan love -->
+  <script>
+    const jumlah = 20;
+    const gambar = ['bunga.png', 'hati.png'];
+
+    for (let i = 0; i < jumlah; i++) {
+      const img = document.createElement('img');
+      img.src = gambar[Math.floor(Math.random() * gambar.length)];
+      img.className = 'falling';
+      img.style.left = Math.random() * 100 + 'vw';
+      img.style.animationDuration = 5 + Math.random() * 5 + 's';
+      img.style.opacity = Math.random();
+      document.body.appendChild(img);
+    }
+  </script>
+
+</body>
+</html>
